@@ -1,31 +1,41 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import { Link } from 'react-router-dom'
 import { registerUser, checkIsAuth } from '../redux/features/auth/authSlice'
-
-
+ import {toast} from "react-toastify";
+import {useNavigate} from "react-router";
 
 export const RegisterPage = () => {
 
   const dispatch = useDispatch()
+  const {status} = useSelector((state) => state.auth)
+  const isAuth = useSelector(checkIsAuth)
+    const navigate  = useNavigate()
 
   const [username, setUserName] = useState('')
   const [password, setPassword] = useState('')
+
+    useEffect(() => {
+        if(status){
+            toast(status)
+        }
+        if(isAuth){
+            navigate('/')
+        }
+    }, [status, isAuth, navigate])
 
   const handleSubmit = () => {
     try {
       dispatch(registerUser({username, password}))
       setPassword('')
       setUserName('')
-    } catch (error) {
-      
-    }
+    } catch (error) {}
   }
 
   return (
 	<div>	<form onSubmit={(e) => e.preventDefault()} className='w-1/4 h-60 mx-auto mt-40'>
-    <h1 className="text-lg text-white text-center">Регистрация hgh</h1>
+    <h1 className="text-lg text-white text-center">Регистрация</h1>
     <label htmlFor="" className="text-xs text-gray-400">
       Username: 
       <input
@@ -38,7 +48,7 @@ export const RegisterPage = () => {
     </label>
 
     <label htmlFor="" className="text-xs text-gray-400">
-      Username: 
+      Password:
       <input
         type='text'
         placeholder='Password'
