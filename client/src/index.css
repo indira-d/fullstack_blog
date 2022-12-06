@@ -6,8 +6,8 @@
   body {
     font-family: 'Poppins', sans-serif;
     background: #c0d3f6;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #f6f8fa, #99aac8);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #dfe7f0, #a9b6cd); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+    background: -webkit-linear-gradient(to right, #c8cfd7, #52617d);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #dee3e9, #b1bbcc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     min-height: 100vh;
   }
 }

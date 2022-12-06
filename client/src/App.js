@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import {useDispatch} from "react-redux";
 import {useEffect} from "react";
 import { getMe } from './redux/features/auth/authSlice.js'
+import {PostPage} from "./pages/PostPage";
 
 
 
@@ -26,7 +27,7 @@ function App() {
       <Routes>
         <Route path='/' element={<MainPage />}></Route>
         <Route path='posts' element={<PostsPage />}></Route>
-        <Route path=':id' element={<PostsPage />}></Route>
+        <Route path=':id' element={<PostPage />}></Route>
         <Route path=':id/edit' element={<EditPostPage />}></Route>
         <Route path='new' element={<AddPostPage />}></Route>
         <Route path='register' element={<RegisterPage />}></Route>
